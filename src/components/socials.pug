@@ -1,0 +1,7 @@
+mixin socials
+  - var socials = [{"icon": "insta", "link": ""}, {"icon": "vk", "link": "vk"}, {"icon": "github", "link": ""}]
+  ul.socials
+    each item in socials
+      li.socials__item
+        a(href=item.link)
+          +icon(item.icon, "socials__icon")

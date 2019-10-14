@@ -1,0 +1,29 @@
+.socials {
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  &__item {
+    margin-left: 40px;
+    cursor: pointer;
+    &:first-child {
+      margin-top: -3px;
+      margin-left: 0;
+    }
+    svg {
+      width: 28px;
+      height: 28px; 
+      fill: #fff; 
+      opacity: 0.3;
+    }
+    &:hover {
+      svg {
+        fill: $accent;
+        opacity: 1;
+      }
+    }
+  }
+  /* &__icon {
+    width: 32px;
+    height: 32px; 
+  } */
+}

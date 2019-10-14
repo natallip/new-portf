@@ -1,0 +1,20 @@
+mixin section-first
+  section.section-first-screen#firstscreen
+    .parallax
+      - for (var i = 1; i < 6; i++)
+        if (i === 3)
+          .parallax__layer.parallax__layer--title
+            .main-title
+              .main-title__text Личный сайт веб-разработчика
+              h1.main-title__title Владимир Астахов
+        .parallax__layer(data-speed=`${i/10}`)
+          picture
+            source(srcset=require(`images/parallax/${i}_1800.png`) media="(max-width: 1200px)").parallax__image
+            source(srcset=require(`images/parallax/${i}_1200.png`) media="(max-width: 768px)").parallax__image
+            source(srcset=require(`images/parallax/${i}_768.png`) media="(max-width: 480px)").parallax__image
+            img(srcset=require(`images/parallax/${i}_3660.png`)).parallax__image
+    .section-first-screen__btn-scroll.btn-scroll
+      a(href="#about")
+        .btn-scroll__text Скролл
+        .btn-scroll__icon
+          +icon("scroll", "scroll-icon")

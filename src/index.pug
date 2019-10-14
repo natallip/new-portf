@@ -1,0 +1,35 @@
+include ./mixins.pug
+include ./components/header.pug
+include ./components/menu.pug
+include ./components/burger.pug
+include ./components/section-first.pug
+include ./components/section-about.pug
+include ./components/section-skills.pug
+include ./components/section-works.pug
+include ./components/section-reviews.pug
+include ./components/section-contacts.pug
+include ./components/footer.pug
+
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Portfolio | main page
+  body
+    .wrapper
+      .maincontent
+        +header
+        +menu
+        +burger
+        +section-first
+        +section-about
+        +section-skills
+        +section-works
+        .section-wrapper
+          +section-reviews
+          +section-contacts
+        +footer
+
+        include ./templates/entry.pug

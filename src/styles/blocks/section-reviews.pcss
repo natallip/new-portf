@@ -1,0 +1,243 @@
+.section-wrapper {
+  background: url("../images/content/1.png") no-repeat 90% 90%/300px, url("../images/content/2.png") no-repeat 90% 60%/80px, url("../images/content/3.png") no-repeat 80% 40%/100px, url("../images/content/bg-bottom.jpg") no-repeat 50% 0%/cover;
+  position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: url("../images/content/4.png") no-repeat 100% 100%/cover;
+      @include desktop {
+        width: 300px;
+        height: 300px;
+      }
+    }
+}
+.section-reviews {
+  padding: 140px 0 50px;
+  &__title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 90px;
+    max-width: 430px;
+    @include desktop {
+      font-size: 30px;
+    }
+    @include tablets {
+      font-size: 24px;
+    }
+  }
+}
+.reviews {
+  position: relative;
+  @include tablets {
+    padding-top: 30px;
+  }
+  &__items {
+    display: flex;
+  }
+  &__slider {
+    width: 1000px;
+    overflow: hidden;
+    position: relative;
+    @include desktop {
+      width: 100%;
+    }
+    
+  }
+  &__contrs {
+    position: absolute;
+    top: -138px;
+    left: 33%;
+    display: flex;
+    @include desktopHd {
+      left: 45%;
+    }
+    @include desktop {
+      left: 55%;
+    }
+    @include tablets {
+      top: -60px;
+      left: 30%;
+    }
+    &-next, &-prev {
+      width: 50px;
+      height: 50px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: .3s;
+      .arrow-icon {
+        width: 10px;
+        height: 10px;
+        fill: #fff;
+      }
+      &:hover {
+        border: 1px solid $accent;
+        .arrow-icon {
+          width: 12px;
+          height: 12px;
+          fill: $accent;
+        }
+      }
+    }
+    &-prev {
+      transform: rotate(180deg);
+      margin-right: 30px;
+    }
+    .disable {
+      opacity: .5;            
+    }
+  }
+}
+.reviews__contrs-next.disable, .reviews__contrs-prev.disable {
+  border: 1px solid #fff;
+    .arrow-icon {
+      width: 12px;
+      height: 12px;
+      fill: #fff;
+    }
+}   
+.review {
+  //width: 500px;
+  width: 50%;
+  padding: 0 20px 0 130px;
+  flex-shrink: 0;
+  background: url("../images/content/quote.png") no-repeat 20px 0%/80px;
+  @include desktopHd {
+    padding-left: 100px;
+    background-position: 0 0;
+  }
+  @include desktop {
+    //width: 50%;
+    padding-left: 50px;
+    background-size: 40px;
+  }
+  @include tablets {
+    width: 100%;
+    background: none;
+    padding: 0;
+  }
+  &__text {
+    margin-bottom: 25px;
+    min-height: 150px;
+  }
+  &__autor-photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 35px;
+    @include desktop {
+      margin-right: 20px;
+    }
+    img {
+      object-fit: cover;
+    }
+  }
+  &__autor {
+    display: flex;
+    align-items: center;
+  }
+  &__autor-name {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    @include desktop {
+      font-size: 16px;
+    }
+  }
+  &__autor-position {
+    color: rgba(#fff, .8);
+    @include desktop {
+      font-size: 14px;
+    }
+  }
+}
+
+
+/* .reviews__items {
+
+}
+	/* text-align: center
+	@include tablets
+		padding: 0 30px */
+		
+/* .review {
+  display: inline-block;
+	max-width: 350px;
+	vertical-align: top;
+	text-align: left;
+	/* &:first-child
+		margin-right: 20px */
+	/* @include tablets
+		margin-bottom: 20px
+		&:first-child
+			margin-right: 0 */
+//}
+	// */ */
+/* 
+.icon-quote-left
+	color: rgba($title-color, .2)
+	font-size: 35px
+	margin-bottom: 10px
+	@include tablets
+		display: block
+		text-align: center
+		font-size: 30px
+
+.review__text
+	font-family: 'robotoregular'
+	font-size: 16px
+	color: $main-font-color
+	margin-bottom: 10px
+	text-align: justify
+	@include laptop
+		font-size: 14px
+
+.reviews__autor-descr
+	display: inline-block
+	
+.reviews__autor-photo
+	border-radius: 50%
+	overflow: hidden
+	width: 80px
+	height: 80px
+	display: inline-block
+	margin-right: 15px
+
+.autor-photo
+	display: block
+	width: 100%
+	height: auto
+	vertical-align: middle
+
+.reviews__autor
+	display: flex
+	align-items: center
+
+.reviews__autor-name
+	font-family: 'robotobold'
+	color: $accent
+	font-size: 16px
+	@include laptop
+		font-size: 14px
+
+.reviews__autor-position
+	font-family: 'robotolight'
+	color: $accent
+	font-size: 16px
+	@include laptop
+		font-size: 14px
+
+.reviews__down-arrow
+	bottom: 40px
+	z-index: 100
+	@include centered(x)
+	transform: rotate(180deg) */

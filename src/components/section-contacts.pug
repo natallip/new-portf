@@ -1,0 +1,20 @@
+mixin section-contacts
+  section.section-contacts#contacts
+    .container
+      .section-contacts__title Связаться со мной
+      .section-contacts__form
+        form#contacts(action="#")
+          .form__row
+            .form__elem
+              input.form__input(type="text" name="name" required)
+              +icon("user", "form-icon")
+              label.form__label Введите ваше имя
+            .form__elem
+              input.form__input(type="email" name="email" required)
+              +icon("envelope", "form-icon")
+              label.form__label Введите ваш email
+          .form__elem
+            textarea.form__textarea(name="message" cols="42" rows="7" required)
+            +icon("message", "form-icon")
+            label.form__label Сообщение к письму
+          input(type="submit" value="Отправить").form__submit

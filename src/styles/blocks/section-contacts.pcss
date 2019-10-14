@@ -1,0 +1,115 @@
+.section-contacts {
+  padding: 140px 0 160px;
+  &__title {
+    color: #fff;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 105px;
+    @include desktop {
+      font-size: 30px;
+    }
+    @include tablets {
+      font-size: 24px;
+    }
+  }
+  &__form {
+    max-width: 870px;
+  }
+}
+.form {
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    @include tablets {
+      flex-direction: column;
+    }
+  }
+  &__elem {
+    position: relative;
+    margin-bottom: 20px;
+    padding-top: 16px;
+  }
+  &__input, &__textarea {
+    position: relative;
+    border: none;
+    border-bottom: 2px solid #fff;
+    padding: 10px 10px 10px 50px;
+    background: none;
+    color: #fff;
+    font-size: 18px;
+    line-height: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    cursor: pointer;  
+    outline: transparent;  
+  }
+  &__input {
+    height: 50px; 
+    width: 410px;
+    @include desktop {
+      width: 330px;
+    }
+    @include tablets {
+      width: 100%;
+    }
+  }
+  &__textarea {
+    height: 100px;
+    width: 100%;
+    resize: none;
+  }
+  &__label {
+    position: absolute;
+    top: 25px;
+    left: 50px;
+    color: rgba(#fff, .5);
+    font-weight: 600;
+    pointer-events: none;
+    transition: .5s;
+  }
+  &-icon {
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    width: 30px;
+    height: 30px;
+    fill: rgba(#fff, .5);    
+  }
+  &__submit {
+    width: 350px;
+    background: $accent;
+    height: 80px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: none;
+    @include desktop {
+      display: block;
+      margin: 0 auto;
+    }
+    @include tablets {
+      width: 100%;
+    }
+  }
+  &__input:focus ~ &__label, &__textarea:focus ~ &__label {
+    top: -15px;
+    font-size: 16px;
+    color: $accent;
+  }
+  &__input:valid ~ &__label, &__textarea:valid ~ &__label {
+    top: -15px;
+    font-size: 16px;
+    color: $accent;
+  }
+  &__input:valid, &__textarea:valid, &__input:focus, &__textarea:focus {
+    border-bottom: 2px solid $accent;
+  }
+  &__input:focus ~ &-icon, &__textarea:focus ~ &-icon {
+    fill: $accent;
+  }
+  &__input:valid ~ &-icon, &__textarea:valid ~ &-icon {
+    fill: $accent;
+  }
+}

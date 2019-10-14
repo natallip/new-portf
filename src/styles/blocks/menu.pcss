@@ -1,0 +1,65 @@
+.menu {
+  transition: all 0.5s ease-in-out;
+  padding-top: 50px;
+  position: absolute;
+  right: 50%;
+  transform: translateX(45%);
+  z-index: 10;
+  @include desktop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(1000px);
+    width: 320px;
+    background: #fff;
+    height: 100vh;    
+  } 
+  @include tablets {
+    width: 100vw;
+  }
+  &__list {
+    display: flex;
+    @include desktop {
+      flex-direction: column;
+      margin-left: 50px; 
+      padding-top: 50px;           
+    }
+    @include tablets {
+      align-items: center;
+      margin-left: 0;
+    }
+  }
+  &__item {
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: .5s;
+    @include desktop {
+      margin: 20px 0;
+    }
+    a {
+      display: block;
+      padding: 10px 20px;
+      color: #fff;
+      @include desktop {
+        color: $footer;
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+    &:hover, &.active {
+      @include desktop {
+        border-color: transparent;
+      }
+      a {
+        color: $accent;
+      }
+      border-bottom: 1px solid $accent;      
+    }
+  }
+  &.open {
+    transform: translateX(0px);
+    transition: all 0.5s ease-in-out;
+  }
+}

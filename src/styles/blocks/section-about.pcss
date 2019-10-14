@@ -1,0 +1,109 @@
+.section-about {
+  position: relative;
+  //margin-top: -200px;
+  padding: 100px 0 480px;
+  background: linear-gradient(#1c2022, #1e2021);
+  z-index: 1;
+  @include tablets {
+    padding-bottom: 100px;
+  }
+}
+.hero {
+  display: flex;
+  justify-content: center; 
+  position: absolute;
+  //top: -10vh;
+  left: 50%; 
+  transform: translateX(-50%);  
+  @include tablets {
+    flex-direction: column;
+    position: relative;
+    left: auto;
+    transform: none;
+  }
+  &__info {
+    //margin-right: 120px;
+    min-width: 350px;
+    @include desktop {
+      min-width: 300px;
+    }
+    @include tablets {
+      margin-bottom: 50px;
+    }
+  }
+  &__photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin: 0 auto 70px;
+    /* margin-left: auto;
+    margin-bottom: 70px; */
+    .user-photo {
+      object-fit: fill;
+      object-position: center;
+    }
+  }
+  &__descr {
+    width: 650px;
+    padding-left: 100px;
+    @include desktop {
+      padding-left: 20px;
+      width: auto;
+    }
+    @include tablets {
+      padding-left: 0;
+    }
+  }
+  &__row {
+    display: flex;
+    margin: 22px 0;
+  }
+  &__key {
+    font-weight: 600;
+    color: rgba(#fff, .5);
+    width: 170px;
+    @include desktop {
+      width: 130px;
+    }
+  }
+  &__value {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+  }
+  &__subtitle {
+    font-weight: 600;
+    color: rgba(#fff, .7);
+    margin-bottom: 20px;
+  }
+  &__title {
+    color: #fff;
+    font-weight: 900;
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  &__text {
+    margin-bottom: 90px;
+    @include desktop {
+      margin-bottom: 52px;
+    }
+  }
+  &__note {
+    font-style: italic;
+    line-height: 30px;
+    color: rgba(#fff, .7);
+    font-weight: 600;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: -50px;
+      width: 24px;
+      height: 24px;
+      background: url("../images/content/note.png") no-repeat 0% 0%/cover;
+    }
+  }
+}

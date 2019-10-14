@@ -1,0 +1,17 @@
+mixin section-about
+  section.section-about#about
+    .container.hero
+      .hero__info
+        .hero__photo
+          +image("user.jpg", "user-photo")
+        .hero__table
+          - var hero = [{"key": "Проживаю:", "value": "Новосибирск"}, {"key": "Возраст:", "value": "27 лет"}, {"key": "Родился:", "value": "1 января 1991"}]
+          each item in hero
+            .hero__row
+              .hero__key= item.key
+              .hero__value= item.value
+      .hero__descr
+        .hero__subtitle Привет, меня зовут
+        h2.hero__title Наталия Петкевич
+        .hero__text.text.text--light Я занимаюсь разработкой современных сайтов и приложений. Мне нравиться делать интересные и современные проекты. 
+        .hero__note Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool. Чуть позже я освежу в нем контент. А пока посмотрите, как тут все классно и красиво!

@@ -1,0 +1,31 @@
+mixin footer
+  footer.footer
+    .container.footer__wrap
+      .footer__about
+        .footer__copyright &copy; 2019
+        .footer__name-wrap
+          .footer__name Владимир Астахов
+          .footer__descr Личный сайт <br> веб-разработчика
+      .footer__box
+        - var menu = [{"name": "Главная", "link": "#firstscreen"}, {"name": "Обо мне", "link": "#about"}, {"name": "Навыки", "link": "#skills"}, {"name": "Работы", "link": "#works"}, {"name": "Отзывы", "link": "#feetbacks"}, {"name": "Связаться", "link": "#contacts"}]
+        nav.footer__menu
+          ul.footer__menu-list
+            each item in menu 
+              li.footer__menu-item
+                a(href= item.link)= item.name
+        .footer__info
+          .footer__info-block
+            .text.text--light Этот сайт я сделал в рамках обучения в Школе онлайн образования
+            - var socials = [{"icon": "telegram", "link": ""}, {"icon": "vk", "link": "vk"}, {"icon": "github", "link": ""}]
+            ul.footer__socials
+              each item in socials
+                li.footer__socials-item
+                  a(href=item.link)
+                    +icon(item.icon, "socials-footer__icon")
+          .footer__quote
+            .text.text--light Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+            .footer__quote-autor Martin Golding
+        
+
+
+

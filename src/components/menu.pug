@@ -1,0 +1,7 @@
+mixin menu
+  - var menu = [{"name": "Главная", "link": "#firstscreen"}, {"name": "Обо мне", "link": "#about"}, {"name": "Навыки", "link": "#skills"}, {"name": "Работы", "link": "#works"}, {"name": "Отзывы", "link": "#reviewss"}, {"name": "Связаться", "link": "#contacts"}]
+  nav.menu
+    ul.menu__list
+      each item in menu 
+        li.menu__item
+          a(href= item.link)= item.name

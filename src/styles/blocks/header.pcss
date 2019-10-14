@@ -1,0 +1,46 @@
+.header {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1480px;
+  z-index: 2;
+  @include desktopHd {
+    width: 1080px;
+  }
+  @include desktop {
+    width: 690px;
+  }
+  @include tablets {
+    width: 280px;
+  }
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+    position: absolute; 
+    @include desktop {
+     padding-top: 30px;   
+    }
+  }  
+  &__nav {
+    @include desktop {
+      top: 0;
+      right: -1000px;
+      position: fixed;
+      transition: 1s;
+      &.open {
+        transform: translateX(-800px);
+        transition: 1s;
+      }
+    }  
+  } 
+  &__socials {
+    @include desktop {
+      padding-right: 150px;
+    }
+    @include tablets {
+      display: none;
+    }
+  }
+}
