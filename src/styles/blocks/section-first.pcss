@@ -1,9 +1,10 @@
 .section-first-screen {
-  max-height: 1000px;
+  flex-shrink: 0;
   min-height: 100vh;
   width: 100vw;
   @include desktop {
-    min-height: 700px;    
+    min-height: 700px;  
+    max-height: 700px;    
   }
   @include tablets {
     background: #000 url("../images/content/bg-top.jpg") no-repeat 50% 0%/cover;
@@ -44,26 +45,33 @@
 }
     
 .parallax {
-  height: 1000px;
-  overflow: hidden;
+  //height: 1000px;
+  //overflow: hidden;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   @include desktop {
-    height: 700px;
+    //height: 700px;
   }
   &__layer {
     position: absolute;
     top: 0;
-    left: 0;
+    //left: 50%;
     width: 100%;
+    //min-width: 1800px;
     height: 100%;
+    will-change: transform;
+    transition: transform .3s;
+    //transform: translateX(-50%);
     z-index: -1;
     @include desktop {
-      height: 700px;
+      //min-width: 1200px;
     }
+    /* @include desktop {
+      height: 700px;
+    } */
     @include tablets {
       display: none;
     }
@@ -73,27 +81,47 @@
     &:nth-child(2) {
       top: 28vh;
       @include desktop {
-        top: 18vh;
+        top: 190px;
+      }
+    }
+    &:nth-child(3) {
+      top: 30vh;
+      @include desktopHd {
+        top: 30vh;
+      }
+      @include desktop {
+        top: 120px;
       }
     }
     &:nth-child(4) {
-      top: 38vh;
+      top: 40vh;
+      @include desktopHd {
+        top: 38vh;
+      }
       @include desktop {
-        top: 25vh;
+        top: 260px;
       }
     }
     &:nth-child(5) {
-      top: 68vh;
-      bottom: 0;
+      top: 75vh;
+      //bottom: 0;
+      @include desktopHd {
+        top: 65vh;
+        //bottom: -20vh;
+      }
       @include desktop {
-        top: 40vh;
+        top: 450px;
       }
     }
     &:nth-child(6) {
       top: 75vh;
-      bottom: 0;
+      //bottom: 0;
+      @include desktopHd {
+        top: 70vh;
+        //bottom: -20vh;
+      }
       @include desktop {
-        top: 40vh;
+        top: 500px;
       }
     }
     /* &:nth-child(6) {
@@ -104,9 +132,9 @@
       }
     } */
     &--title {
-      top: 30vh; 
+      //top: 35vh; 
       @include desktop {
-        top: 13vh;
+        //top: 13vh;
       }   
       @include tablets {
         display: block;

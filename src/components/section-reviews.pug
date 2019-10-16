@@ -4,16 +4,30 @@ mixin section-reviews
       .section-reviews__title Что обо мне говорят
       .reviews
         .reviews__slider
-          flickity(ref="flickity" :options="flickityOptions")
-            .carousel-cell(v-for="item in reviews", :key="item.id").reviews__item.review
-              .review__text.text.text--light {{ item.text }}
-              .review__autor
-                .review__autor-photo
-                  img(:src="item.pic", alt="autor-photo")
-                .review__autor-descr
-                  .review__autor-name {{ item.name }}
-                  .review__autor-position {{ item.pos }}
-          ul.reviews__items
+          #reviews-list
+            swiper(:options="swiperOption" ref="mySwiper")
+              swiper-slide(v-for="item in reviews", :key="item.id")
+                .reviews__item.review
+                  .review__text.text.text--light {{ item.text }}
+                  .review__autor
+                    .review__autor-photo
+                      img(:src="item.pic", alt="autor-photo")
+                    .review__autor-descr
+                      .review__autor-name {{ item.name }}
+                      .review__autor-position {{ item.pos }}
+            
+          
+          
+          //- flickity(ref="flickity" :options="flickityOptions")
+          //-   .carousel-cell(v-for="item in reviews", :key="item.id").reviews__item.review
+          //-     .review__text.text.text--light {{ item.text }}
+          //-     .review__autor
+          //-       .review__autor-photo
+          //-         img(:src="item.pic", alt="autor-photo")
+          //-       .review__autor-descr
+          //-         .review__autor-name {{ item.name }}
+          //-         .review__autor-position {{ item.pos }}
+          //-ul.reviews__items
             //- var reviews = [{"text": "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!", "img": "review1.jpg", "name": "Ковальчук Дмитрий", "position": "основатель Loftschool"}, {"text": "Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!", "img": "review2.jpg", "name": "Сабанцев Владимир ", "position": "преподаватель"}, {"text": "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!", "img": "review1.jpg", "name": "Ковальчук Дмитрий", "position": "основатель Loftschool"}, {"text": "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!", "img": "review2.jpg", "name": "Сабанцев Владимир", "position": "преподаватель"}]
             //- each item in reviews
             //-   li.reviews__item.review
@@ -25,7 +39,7 @@ mixin section-reviews
             //-         .review__autor-name= item.name
             //-         .review__autor-position= item.position
         .reviews__contrs
-          .reviews__contrs-prev.prev(@click="previous")
+          .reviews__contrs-prev
             +icon("arrow-down", "arrow-icon")
-          .reviews__contrs-next.next(@click="next")
+          .reviews__contrs-next
             +icon("arrow-down", "arrow-icon")

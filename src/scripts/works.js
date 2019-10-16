@@ -4,12 +4,61 @@ const thumbs = {
   template: "#slider-thumbs",
   props: {
     works: Array,
-    currentWork: Object
+    currentWork: Object,
+    currentIndex: Number,
+    direction: String
+  },
+  computed: {
+    thumbWidth() {
+      return this.$refs.thumbsItem[0].clientWidth;
+    },  
+    visibleThumbsCount() {
+      let countThumbsVisible = Math.round(this.$refs.thumbsList.clientWidth / this.$refs.thumbsItem[0].clientWidth);
+      return countThumbsVisible;
+    }
+  },
+  methods: {
+    moveThumbs(i) {
+      if (this.direction === "next" && i > this.visibleThumbsCount - 1 && i <= this.works.length - 1) {
+        this.$refs.thumbsList.style.transition = 'transform .5s ease-in-out'; 
+        this.$refs.thumbsList.style.transform = `translateX(${- i - this.visibleThumbsCount - 1 * this.thumbWidth + 6}px)`;
+      }; 
+      if (this.direction === "prev" && i < (this.works.length - this.visibleThumbsCount)) {
+        this.$refs.thumbsList.style.transition = 'transform .5s ease-in-out'; 
+        this.$refs.thumbsList.style.transform = `translateX(${ i * this.thumbWidth}px)`;
+      }
+    }
+  }, 
+  watch: {
+    currentIndex(i) {
+      this.moveThumbs(i);
+    }
   }
 };
 
 const btns = {
-  template: "#slider-btns"
+  template: "#slider-btns",
+  props: {
+    works: Array,
+    currentIndex: Number
+  },
+  methods: {
+    setDisableClass() {
+      if (this.currentIndex >= this.works.length - 1) {
+        this.$refs["btn-next"].classList.add("disable");
+      } else  if (this.currentIndex === 0) {
+        this.$refs["btn-prev"].classList.add("disable");
+      } else {
+        this.$refs["btn-next"].classList.remove("disable");
+        this.$refs["btn-prev"].classList.remove("disable");
+      }
+    }
+  },
+  watch: {
+    currentIndex(i) {
+      this.setDisableClass();
+    }
+  }
 };
 
 const display = {
@@ -18,15 +67,26 @@ const display = {
     btns,
     thumbs
   },
+  data() {
+    return {
+      direction: undefined
+    }
+  },
   props: {
     works: Array,
     currentWork: Object,
     currentIndex: Number
   },
   computed: {
-    reversedWorks() {
-      const works = [...this.works];
-      return works;
+    // reversedWorks() {
+    //   const works = [...this.works].reverse();
+    //   return works;
+    // }
+  },
+  methods: {
+    setDirection(value) {
+      this.direction = value;
+      this.$emit('slide', this.direction);
     }
   }
 };
@@ -64,35 +124,24 @@ new Vue({
     return {
       works: [],
       currentIndex: 0,
-      //visibleThumbsCount : 4,
-      visibleThumbs: []
+      direction: undefined
     };
   },
   computed: {
     currentWork() {
       return this.works[this.currentIndex];
-    },
-    visibleThumbsCount() {
-      console.log(333, this.$refs.thumbsList);
-      let countThumbs = Math.round(this.$refs.thumbsList.clientWidth() / this.$refs.thumbsItem[0].clientWidth());
-      console.log(123, countThumbs);
-      return countThumbs;
     }
   },
   watch: {
     currentIndex(value) {
-      this.makeInfiniteLoopForCurIndex(value);
+      this.makeLoopForCurIndex(value);
     }
   },
   methods: {
-    makeInfiniteLoopForCurIndex(value) {
-
-      //console.log(555, this.$refs["thumbsList"]);
-
-
+    makeLoopForCurIndex(value) {
       const worksAmount = this.works.length - 1;
-      if (value > worksAmount) this.currentIndex = 0;
-      if (value < 0) this.currentIndex = worksAmount;
+      if (value > worksAmount) this.currentIndex = worksAmount;
+      if (value < 0) this.currentIndex = 0;
     },
     makeArrWithRequiredImages(data) {
       return data.map(item => {
@@ -102,18 +151,15 @@ new Vue({
         return item;
       });
     },
-    makeVisibleThumbsArray() {
-      if (currentIndex > visibleThumbsCount) {
-
-      }
-    },
     handleSlide(direction) {
       switch (direction) {
         case "next":
           this.currentIndex++;
+          this.direction = direction;
           break;
         case "prev":
           this.currentIndex--;
+          this.direction = direction;
           break;
       }
     }
@@ -121,9 +167,5 @@ new Vue({
   created() {
     const data = require("../data/works.json");
     this.works = this.makeArrWithRequiredImages(data);
-  },
-  mounted() {
-    
-    //console.log(123, this.visibleThumbsCount);
   }
 });

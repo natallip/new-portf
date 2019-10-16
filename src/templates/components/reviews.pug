@@ -1,0 +1,10 @@
+//- script(type="text/x-template")#reviews-list 
+//-   flickity(ref="flickity" :options="flickityOptions")
+//-     .carousel-cell(v-for="item in reviews", :key="item.id").reviews__item.review
+//-       .review__text.text.text--light {{ item.text }}
+//-       .review__autor
+//-         .review__autor-photo
+//-           img(:src="item.pic", alt="autor-photo")
+//-         .review__autor-descr
+//-           .review__autor-name {{ item.name }}
+//-           .review__autor-position {{ item.pos }}

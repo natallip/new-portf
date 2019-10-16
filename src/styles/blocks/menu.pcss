@@ -34,9 +34,12 @@
     border-bottom: 1px solid transparent;
     cursor: pointer;
     margin: 0 10px;
-    transition: .5s;
+    flex-shrink: 0; 
+    color: #fff; 
+    padding: 10px 18px; 
     @include desktop {
       margin: 20px 0;
+      transition: .5s;
     }
     a {
       display: block;
@@ -55,6 +58,7 @@
       a {
         color: $accent;
       }
+      color: $accent;
       border-bottom: 1px solid $accent;      
     }
   }

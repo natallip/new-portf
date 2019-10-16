@@ -198,7 +198,12 @@
     left: 50%;
     transform: translate(-50%, -50%) rotate(0deg);
     transition: opacity .3s, margin-top .3s;
-    opacity: .3;
+    opacity: .8;
+  }
+  &.disable {
+    &:before {
+      opacity: .3;
+    }
   }
   &:hover {
     &:before {

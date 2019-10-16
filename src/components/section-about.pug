@@ -3,9 +3,9 @@ mixin section-about
     .container.hero
       .hero__info
         .hero__photo
-          +image("user.jpg", "user-photo")
+          +image("myphoto.jpg", "user-photo")
         .hero__table
-          - var hero = [{"key": "Проживаю:", "value": "Новосибирск"}, {"key": "Возраст:", "value": "27 лет"}, {"key": "Родился:", "value": "1 января 1991"}]
+          - var hero = [{"key": "Проживаю:", "value": "Гродно"}, {"key": "Возраст:", "value": "34 года"}, {"key": "Родился:", "value": "8 сентября 1985"}]
           each item in hero
             .hero__row
               .hero__key= item.key
