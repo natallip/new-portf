@@ -47,7 +47,6 @@ export default {
   top: 0;
   left: -9999px;
 }
-
 .btn-decorator {
   padding: 19px 40px;
   color: #fff;
@@ -56,14 +55,12 @@ export default {
   display: inline-block;
   border-radius: 100px;
   font-weight: bold;
-
   &.disabled {
     opacity: .5;
     filter: grayscale(100%);
     pointer-events: none;
     user-select: none;
   }
-
   &.plain {
     text-transform: initial;
     color: $links-color;
@@ -71,5 +68,3 @@ export default {
   }
 }
 </style>
-
-

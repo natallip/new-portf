@@ -33,62 +33,58 @@
     import {Validator} from "simple-vue-validator";
 
     export default {
-        mixins: [require("simple-vue-validator").mixin],
-        validators: {
-            "user.name": value => {
-                return Validator.value(value).required("Введите имя пользователя");
-            },
-            "user.password": value => {
-                return Validator.value(value).required("Введите пароль");
-            }
+      mixins: [require("simple-vue-validator").mixin],
+      validators: {
+        "user.name": value => {
+          return Validator.value(value).required("Введите имя пользователя");
         },
-        components: {
-            appInput: () => import("components/input.vue")
-        },
-        data() {
-            return {
-                disableSubmit: false,
-                user: {
-                    name: "bagstel",
-                    password: "bagstel"
-                }
-            };
-        },
-        computed: {
-            ...mapGetters("user", ["userIsLogged"])
-        },
-        methods: {
-            ...mapActions("user", ["loginUser"]),
-            ...mapActions("tooltips", ["showTooltip"]),
-            async login() {
-                if ((await this.$validate()) === false) return;
-
-                this.disableSubmit = true;
-
-                try {
-                    const response = await this.loginUser(this.user);
-                    const token = response.data.token;
-                    setToken(token);
-                    setAuthHttpHeaderToAxios(axiosInstance, token);
-
-                    this.$router.replace("/");
-                } catch (error) {
-                    this.showTooltip({
-                        type: "error",
-                        text: error.message
-                    });
-                } finally {
-                    this.disableSubmit = false;
-                    this.validation.reset();
-                }
-            }
+        "user.password": value => {
+          return Validator.value(value).required("Введите пароль");
         }
+      },
+      components: {
+        appInput: () => import("components/input.vue")
+      },
+      data() {
+        return {
+          disableSubmit: false,
+          user: {
+            name: "natalia-102019",
+            password: "natalia102019"
+          }
+        };
+      },
+      computed: {
+        ...mapGetters("user", ["userIsLogged"])
+      },
+      methods: {
+        ...mapActions("user", ["loginUser"]),
+        ...mapActions("tooltips", ["showTooltip"]),
+        async login() {
+          if ((await this.$validate()) === false) return;
+          this.disableSubmit = true;
+          try {
+            const response = await this.loginUser(this.user);
+            const token = response.data.token;
+            setToken(token);
+            setAuthHttpHeaderToAxios(axiosInstance, token);
+            this.$router.replace("/");
+          } catch (error) {
+            this.showTooltip({
+              type: "error",
+              text: error.message
+            });
+          } finally {
+            this.disableSubmit = false;
+            this.validation.reset();
+          }
+        }
+      }
     };
 </script>
 
 <style lang="postcss">
   @import "../../../styles/mixins.pcss";
-
   .login {
     position: fixed;
     top: 0;
@@ -98,8 +94,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    //background: url("~images/bg/admin.jpg") center center / cover no-repeat;
-
+    //background: url("~images/content/bg-top.jpg") center center / cover no-repeat;
     &:before {
       content: "";
       position: absolute;
@@ -107,58 +102,50 @@
       bottom: 0;
       left: 0;
       right: 0;
-      opacity: 0.5;
+      opacity: 0.8;
       background: $text-color;
     }
   }
-
   .login__form-title {
     font-size: 36px;
     text-align: center;
     font-weight: 600;
   }
-
   .login__content {
     position: relative;
-
     @include phones {
       height: 100%;
       width: 100%;
     }
   }
-
   .login__row {
     margin-bottom: 35px;
   }
-
   .login__btn {
     display: flex;
     width: 100%;
     padding: 0 8%;
     justify-content: center;
   }
-
   .login__send-data {
     width: 100%;
     padding: 30px;
-    background-image: linear-gradient(to right, #ad00ed, #5500f2);
-    border-radius: 40px 0 40px;
+    background: $accent;
+    //background-image: linear-gradient(to right, #ad00ed, #5500f2);
+    //border-radius: 40px 0 40px;
     color: #fff;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 18px;
-
     &[disabled] {
       opacity: 0.5;
       filter: grayscale(100%);
     }
   }
-
   .login__form {
     width: 563px;
     padding: 50px 77px 60px;
     background: #fff;
-
     @include phones {
       width: 100%;
       padding-right: 7%;
@@ -170,5 +157,3 @@
     }
   }
 </style>
-
-

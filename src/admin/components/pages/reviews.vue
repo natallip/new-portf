@@ -89,13 +89,11 @@ export default {
 
 <style lang="postcss" scoped>
 @import "../../../styles/mixins.pcss";
-
 .reviews {
   display: flex;
   flex-wrap: wrap;
   margin-left: -30px;
 }
-
 .reviews__item {
   margin-left: 30px;
   width: calc(100% / 3 - 30px);
@@ -108,10 +106,7 @@ export default {
     margin-bottom: 15px;
   }
 }
-
 .reviews__form {
   margin-bottom: 30px;
 }
 </style>
-
-

@@ -77,7 +77,6 @@ export default {
 
 <style lang="postcss" scoped>
 @import url("../../../styles/mixins.pcss");
-
 .works {
   display: flex;
   flex-wrap: wrap;
@@ -86,16 +85,13 @@ export default {
     margin-left: 0;
   }
 }
-
 .works__item {
   width: calc(100% / 3 - 30px);
   margin-left: 30px;
   margin-bottom: 30px;
-
   @include tablets {
     width: calc(100% / 2 - 30px);
   }
-
   @include phones {
     width: 100%;
     margin-left: 0;

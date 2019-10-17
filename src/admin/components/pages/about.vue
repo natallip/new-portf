@@ -127,12 +127,10 @@ export default {
 
 <style lang="postcss" scoped>
 @import "../../../styles/mixins.pcss";
-
 .about-page__title {
   display: flex;
   align-items: center;
   margin-bottom: 60px;
-
   .page-title {
     margin-bottom: 0;
     margin-right: 60px;
@@ -140,20 +138,17 @@ export default {
       margin-bottom: 28px;
     }
   }
-
   @include phones {
     flex-direction: column;
     align-items: flex-start;
   }
 }
-
 .about-page__add-new {
   color: $links-color;
   font-weight: bold;
   display: flex;
   align-items: center;
   padding: 0;
-
   &:before {
     content: "+";
     display: block;
@@ -168,17 +163,14 @@ export default {
     flex-basis: 20px;
   }
 }
-
 .skills {
   margin-bottom: 60px;
-
   tr:last-child {
     .skills__cell {
       padding-bottom: 0;
     }
   }
 }
-
 .skill-list {
   display: flex;
   flex-wrap: wrap;
@@ -187,39 +179,31 @@ export default {
     margin-left: 0;
   }
 }
-
 .skill-list__item {
   width: calc(100% / 2 - 30px);
+  min-height: 500px;
   margin-left: 30px;
   margin-bottom: 30px;
-
   &.loading {
     opacity: 0.5;
     pointer-events: none;
     filter: grayscale(100%);
   }
-
   @include phones {
     width: 100%;
     margin-left: 0;
     margin-bottom: 12px;
   }
 }
-
 .skill-list__table {
   margin-bottom: 40px;
 }
-
 .add-new {
   padding-left: 18%;
   position: relative;
   margin-top: auto;
-
   @include phones {
     padding-left: 0;
   }
 }
 </style>
-
-
-
